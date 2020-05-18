@@ -8,6 +8,7 @@ import com.mysql.jdbc.Statement;
 
 import Entities.Usuario;
 import db.DB;
+import model.services.DeletarBancoDeDados;
 
 public class Program {
 
@@ -27,7 +28,7 @@ public class Program {
 			
 			while(rs.next()) {
 
-			if (usuario.getEmail() == String.format("", rs.getString("Email")) || usuario.getSenha() == rs.getInt("Senha")) {
+			if (usuario.getEmail().equals(rs.getString("Email")) && usuario.getSenha() == rs.getInt("Senha")) {
 				System.out.println("Usuario validado com sucesso!");
 			} else {
 				System.out.println("Usuario invalido, verifique dados digitados!");
