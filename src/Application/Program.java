@@ -2,13 +2,13 @@ package Application;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
 import Entities.Usuario;
 import db.DB;
-import model.services.DeletarBancoDeDados;
 
 public class Program {
 
@@ -17,8 +17,15 @@ public class Program {
 		Connection conn = null;
 		Statement st = null;
 		ResultSet rs = null;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Digite o E-mail: ");
+		String Email = sc.next();
+		System.out.println("Digite sua Senha: ");
+		int Senha = sc.nextInt();
 
-		Usuario usuario = new Usuario("ADM@teste.com.br", 12345678);
+		Usuario usuario = new Usuario(Email, Senha);
 
 		try {
 
